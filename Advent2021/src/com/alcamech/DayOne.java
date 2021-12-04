@@ -22,7 +22,7 @@ public class DayOne {
         return numList;
     }
 
-    public int SolutionPartOne() {
+    public int solutionPartOne() {
         List<Integer> numList = createNumListFromFile(file);
         int answer = 0;
         int prevDepth = numList.get(0);
@@ -36,7 +36,7 @@ public class DayOne {
         return answer;
     }
 
-    public int SolutionPartTwo() {
+    public int solutionPartTwo() {
         int answer = 0;
         List<Integer> numList = createNumListFromFile(file);
         int prevCalc = numList.get(0) + numList.get(1) + numList.get(2);
