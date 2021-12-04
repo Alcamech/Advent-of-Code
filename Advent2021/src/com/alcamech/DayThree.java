@@ -7,7 +7,8 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class DayThree {
-    private final String[][] diagnosticReport = readInputIntoMatrix("/home/lmizell/Development/Advent-of-Code/Advent2021/resources/advent-day-3-input.txt");
+    String filePath = getClass().getClassLoader().getResource("advent-day-3-input.txt").getPath();
+    private final String[][] diagnosticReport = readInputIntoMatrix(filePath);
     private final int numOfColumns = diagnosticReport[0].length;
 
     public DayThree() throws IOException {
