@@ -77,8 +77,8 @@ public class DayFour {
 
     public int solutionPartTwo() {
         List<List<List<String>>> boards = new ArrayList<>();
+        List<List<List<String>>> winningBoards = new ArrayList<>();
         boolean winner;
-        int winningBoardCount = 0;
 
         for(int i=0; i <boardInput.size(); i+=6) {
             List<List<String>> matrix = new ArrayList<>();
@@ -98,10 +98,10 @@ public class DayFour {
                             r.set(c, "-1");
                             winner = isWinningBoard(matrix);
                             if(winner) {
-                                winningBoardCount++;
-                                if(winningBoardCount == boards.size()) {
-                                    System.out.println("board: "+matrix);
-                                    System.out.println("draw: "+draw);
+                                if(!winningBoards.contains(matrix)) {
+                                    winningBoards.add(matrix);
+                                }
+                                if(winningBoards.size() == boards.size()) {
                                     return sumWinningBoard(matrix) * draw;
                                 }
                             }
