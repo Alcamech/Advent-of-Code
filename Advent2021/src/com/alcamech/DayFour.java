@@ -74,4 +74,42 @@ public class DayFour {
         }
         return 0;
     }
+
+    public int solutionPartTwo() {
+        List<List<List<String>>> boards = new ArrayList<>();
+        boolean winner;
+        int winningBoardCount = 0;
+
+        for(int i=0; i <boardInput.size(); i+=6) {
+            List<List<String>> matrix = new ArrayList<>();
+            for(int j=0; j<5; j++) {
+                List<String> s = Arrays.asList(boardInput.get(i + j).trim().split("\\s+"));
+                matrix.add(s);
+            }
+            boards.add(matrix);
+        }
+
+        for (Integer draw : draws) {
+            for (List<List<String>> matrix : boards) {
+                for (List<String> r : matrix) {
+                    for (int c = 0; c < r.size(); c++) {
+                        String position = r.get(c);
+                        if (Integer.parseInt(position) == draw) {
+                            r.set(c, "-1");
+                            winner = isWinningBoard(matrix);
+                            if(winner) {
+                                winningBoardCount++;
+                                if(winningBoardCount == boards.size()) {
+                                    System.out.println("board: "+matrix);
+                                    System.out.println("draw: "+draw);
+                                    return sumWinningBoard(matrix) * draw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return 0;
+    }
 }
