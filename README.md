@@ -7,7 +7,7 @@ https://adventofcode.com
 |   1  | :heavy_check_mark: | :heavy_check_mark: |  |
 |   2  | :heavy_check_mark: | :heavy_check_mark: |  |
 |   3  | :heavy_check_mark: | :heavy_check_mark: |  |
-|   4  | :x: | :x: |  |
+|   4  | :heavy_check_mark: | :x: | eh, too many loops might refactor later |
 |   5  | :x: | :x: |  |
 |   6  | :x: | :x: |  |
 |   7  | :x: | :x: |  |
