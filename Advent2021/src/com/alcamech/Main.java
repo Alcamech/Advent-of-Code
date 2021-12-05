@@ -17,5 +17,8 @@ public class Main {
         DayThree dayThree = new DayThree();
         System.out.println(dayThree.solutionPartOne());
         System.out.println(dayThree.solutionPartTwo());
+        System.out.println("----- DAY FOUR -----");
+        DayFour dayFour = new DayFour();
+        System.out.println(dayFour.solutionPartOne());
     }
 }
