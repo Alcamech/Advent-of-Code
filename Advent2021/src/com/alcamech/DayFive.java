@@ -11,6 +11,7 @@ import java.util.Map;
 record Coordinate(int x, int y){}
 
 public class DayFive {
+
     private String file = getClass().getClassLoader().getResource("advent-day-5-input.txt").getPath();
     List<String> lines = Files.readAllLines(Path.of(file));
     Map<Map<Integer,Integer>,Integer> coordinateCount = new HashMap<>();
@@ -18,7 +19,11 @@ public class DayFive {
     public DayFive() throws IOException {
     }
 
-    public void plotCoordinateCount(AbstractMap.SimpleImmutableEntry<Coordinate, Coordinate> coordPair) {
+    private boolean isDiagonal45Degrees(int x1, int x2, int y1, int y2) {
+        return Math.abs(x1-x2) == Math.abs(y1-y2);
+    }
+
+    public void plotCoordinateCount(AbstractMap.SimpleImmutableEntry<Coordinate, Coordinate> coordPair, boolean isDiagonal) {
         int x1 = coordPair.getKey().x();
         int y1 = coordPair.getKey().y();
         int x2 = coordPair.getValue().x();
@@ -59,6 +64,45 @@ public class DayFive {
                 }
             }
         }
+
+        if(isDiagonal && isDiagonal45Degrees(x1,x2,y1,y2)) {
+            if(x1 < x2) {
+                int round = 0;
+                for(int x = x1; x <= x2; ++x) {
+                    Map<Integer,Integer> coord =  new HashMap<>();
+                    if(y1 < y2) {
+                        coord.put(x,y1+round);
+                        int count = coordinateCount.getOrDefault(coord, 0);
+                        coordinateCount.put(coord, count + 1);
+                        System.out.println("Count for"+coord+" : "+coordinateCount.get(coord));
+                    } else {
+                        coord.put(x,y1-round);
+                        int count = coordinateCount.getOrDefault(coord, 0);
+                        coordinateCount.put(coord, count + 1);
+                        System.out.println("Count for"+coord+" : "+coordinateCount.get(coord));
+                    }
+                    round++;
+                }
+            }
+            if(x1 > x2) {
+                int round = 0;
+                for(int x = x1; x >= x2; --x) {
+                    Map<Integer,Integer> coord =  new HashMap<>();
+                    if(y1 < y2) {
+                        coord.put(x,y1+round);
+                        int count = coordinateCount.getOrDefault(coord, 0);
+                        coordinateCount.put(coord, count + 1);
+                        System.out.println("Count for"+coord+" : "+coordinateCount.get(coord));
+                    } else {
+                        coord.put(x,y1-round);
+                        int count = coordinateCount.getOrDefault(coord, 0);
+                        coordinateCount.put(coord, count + 1);
+                        System.out.println("Count for"+coord+" : "+coordinateCount.get(coord));
+                    }
+                    round++;
+                }
+            }
+        }
     }
 
     // Produces a list of coordinate pairs
@@ -75,9 +119,19 @@ public class DayFive {
     public long solutionPartOne(){
         List<AbstractMap.SimpleImmutableEntry<Coordinate,Coordinate>> coordinateList = parseCoordinates(lines);
         for (AbstractMap.SimpleImmutableEntry<Coordinate, Coordinate> coordPair : coordinateList) {
-            if (coordPair.getKey().x() == coordPair.getValue().x() || coordPair.getKey().y() == coordPair.getValue().y()) {
-                plotCoordinateCount(coordPair);
-            }
+            plotCoordinateCount(coordPair,false);
+        }
+
+        return coordinateCount.entrySet().stream().filter(x -> x.getValue() > 1 ).count();
+    }
+
+    public long solutionPartTwo() {
+        coordinateCount.clear();
+
+        List<AbstractMap.SimpleImmutableEntry<Coordinate,Coordinate>> coordinateList = parseCoordinates(lines);
+        for (AbstractMap.SimpleImmutableEntry<Coordinate, Coordinate> coordPair : coordinateList) {
+            System.out.println(coordPair);
+            plotCoordinateCount(coordPair,true);
         }
 
         return coordinateCount.entrySet().stream().filter(x -> x.getValue() > 1 ).count();

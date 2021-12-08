@@ -24,5 +24,6 @@ public class Main {
         System.out.println("----- DAY FIVE -----");
         DayFive dayFive = new DayFive();
         System.out.println(dayFive.solutionPartOne());
+        System.out.println(dayFive.solutionPartTwo());
     }
 }
