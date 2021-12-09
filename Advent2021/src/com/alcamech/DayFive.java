@@ -74,12 +74,10 @@ public class DayFive {
                         coord.put(x,y1+round);
                         int count = coordinateCount.getOrDefault(coord, 0);
                         coordinateCount.put(coord, count + 1);
-                        System.out.println("Count for"+coord+" : "+coordinateCount.get(coord));
                     } else {
                         coord.put(x,y1-round);
                         int count = coordinateCount.getOrDefault(coord, 0);
                         coordinateCount.put(coord, count + 1);
-                        System.out.println("Count for"+coord+" : "+coordinateCount.get(coord));
                     }
                     round++;
                 }
@@ -92,12 +90,10 @@ public class DayFive {
                         coord.put(x,y1+round);
                         int count = coordinateCount.getOrDefault(coord, 0);
                         coordinateCount.put(coord, count + 1);
-                        System.out.println("Count for"+coord+" : "+coordinateCount.get(coord));
                     } else {
                         coord.put(x,y1-round);
                         int count = coordinateCount.getOrDefault(coord, 0);
                         coordinateCount.put(coord, count + 1);
-                        System.out.println("Count for"+coord+" : "+coordinateCount.get(coord));
                     }
                     round++;
                 }
@@ -130,7 +126,6 @@ public class DayFive {
 
         List<AbstractMap.SimpleImmutableEntry<Coordinate,Coordinate>> coordinateList = parseCoordinates(lines);
         for (AbstractMap.SimpleImmutableEntry<Coordinate, Coordinate> coordPair : coordinateList) {
-            System.out.println(coordPair);
             plotCoordinateCount(coordPair,true);
         }
 
