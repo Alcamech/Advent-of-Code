@@ -33,5 +33,9 @@ public class Main {
         DaySeven daySeven = new DaySeven();
         System.out.println(daySeven.solutionPartOne());
         System.out.println(daySeven.solutionPartTwo());
+        System.out.println("----- DAY EIGHT -----");
+        DayEight dayEight = new DayEight();
+        System.out.println(dayEight.solutionPartOne());
+        System.out.println(dayEight.solutionPartTwo());
     }
 }
