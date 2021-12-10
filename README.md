@@ -10,7 +10,7 @@ https://adventofcode.com
 |   4  | :heavy_check_mark: | :heavy_check_mark: | eh, too many loops might refactor later |
 |   5  | :heavy_check_mark: | :heavy_check_mark: |  records |
 |   6  | :heavy_check_mark: | :heavy_check_mark: |  part 2, clever solution from someone else. |
-|   7  | :x: | :x: |  |
+|   7  | :heavy_check_mark: | :heavy_check_mark: |  |
 |   8  | :x: | :x: |  |
 |   9  | :x: | :x: |  |
 |  10  | :x: | :x: |  |
