@@ -5,6 +5,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        /*
         System.out.println("----- DAY ONE -----");
         DayOne dayOne = new DayOne();
         System.out.println(dayOne.solutionPartOne());
@@ -37,5 +38,9 @@ public class Main {
         DayEight dayEight = new DayEight();
         System.out.println(dayEight.solutionPartOne());
         System.out.println(dayEight.solutionPartTwo());
+         */
+        System.out.println("----- DAY EIGHT -----");
+        DayNine dayNine = new DayNine();
+        System.out.println(dayNine.solutionPartOne());
     }
 }
